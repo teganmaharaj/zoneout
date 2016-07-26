@@ -49,10 +49,6 @@ Zoneout (with probability 0.5 of zoning out on cells and 0.05 on hidden states i
 ```
 zoneout_char_ptb.py --z_prob_cells=0.5 --z_prob_states=0.05
 ```
-*or*
-```
-zoneout_char_ptb.py
-```
 
 ### Word-level Penn Treebank
 
@@ -64,7 +60,7 @@ zoneout_word_ptb.py
 ```
 Zoneout (with probability 0.5 of zoning out on cells and 0.05 on hidden states in LSTM)
 ```
-zoneout_char_ptb.py --z_prob_cells=0.5 --z_prob_states=0.05
+zoneout_word_ptb.py --z_prob_cells=0.5 --z_prob_states=0.05
 ```
 
 ### Text8
@@ -103,7 +99,7 @@ zoneout_seq2seq.py
 Zoneout 
 ```
 zoneout_seq2seq.py --z_prob_cells=0.5 --z_prob_states=0.05
-
+```
 
 ### Semantic consistency
 
