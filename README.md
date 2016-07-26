@@ -1,6 +1,6 @@
 # Zoneout
 
-This repo contains the code for replicating the results in [Zoneout: Regularizing RNNs by Randomly Preserving Hidden Activations](http://arxiv.org/abs/1606.01305).
+This repo contains the code for replicating the results in [Zoneout: Regularizing RNNs by Randomly Preserving Hidden Activations](http://arxiv.org/abs/1606.01305), as well as gists to help implement zoneout in your code (in Theano and Tensorflow).
 
 Zoneout is a regularizer for RNNs. At each timestep, units have a random probability of maintaining their previous value. This can be seen as [dropout](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf) using an identity mask instead of zero mask, or like a per-unit version of [stochastic depth](https://arxiv.org/pdf/1603.09382.pdf). 
 
