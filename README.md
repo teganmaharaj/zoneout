@@ -128,10 +128,13 @@ zoneout_theano.py
 zoneout_blocksfuel.py
 zoneout_tensorflow.py
 ```
+These repos may also be useful:
+https://github.com/mohammadpz/LSTM_Dropout/
+https://github.com/ballasn/recurrent-batch-normalization
 
 ## Credits
 
-The permuted sequential MNIST code was mostly written by Mohammad Pezeshki and Nicolas Ballas, and is based heavily on code written by Tim Cooijmans and Nicolas Ballas for recurrent batch normalization.
+The permuted sequential MNIST code was mostly written by Mohammad Pezeshki and Nicolas Ballas, modified by Tegan Maharaj, and is based heavily on code written by Tim Cooijmans and Nicolas Ballas for recurrent batch normalization.
 
 The char-PTB code was written mostly by Janos Kramar and Tegan Maharaj, based on code written by Mohammad Pezeshki, based on code from MILA's speech group.
 The word-level PTB code was based on this code, extended by Janos Kramar, Tegan Maharaj, and David Krueger. The text8 code was also based on this code, extended by Tegan Maharaj. The sequence to sequence task is tensorflow code from Erik Rehn, with zoneout implemented by David Krueger, Janos Kramar, and Tegan Maharaj. The semantic consistency task and code were developed by David Krueger. The gradient propagation code is from recurrent batch normalization. 
