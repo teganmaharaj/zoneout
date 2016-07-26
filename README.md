@@ -41,9 +41,9 @@ Norm stabilizer baseline
 ```
 zoneout_char_ptb.py --norm_cost_coeff=50
 ```
-Input-gate dropout baseline (dropout probability 0.5)
+Input-gate dropout baseline (dropout probability 0.7)
 ```
-zoneout_char_ptb.py --drop_prob_igates=0.5
+zoneout_char_ptb.py --drop_prob_igates=0.7
 ```
 Zoneout (with probability 0.5 of zoning out on cells and 0.05 on hidden states in LSTM)
 ```
@@ -86,7 +86,7 @@ zoneout_text8.py --drop_prob_igates=0.5
 Zoneout (with probability 0.2 of zoning out on cells and 0.2 on hidden states in LSTM)
 ```
 zoneout_text8.py --z_prob_cells=0.2 --z_prob_states=0.2
-
+```
 
 ### Toy sequence to sequence task
 
