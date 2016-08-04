@@ -34,8 +34,5 @@ def step_fn(x, h_prev, c_prev, zoneouts_states, zoneouts_cells, h, c)
 	if zoneout:
 		h = h_prev * zoneouts_states + (1 - zoneouts_states) * h
 		c = c_prev * zoneouts_cells + (1 - zoneouts_cells) * c
-	else:
-		h = h_prev
-		c = c_prev
 
 	return h,c
