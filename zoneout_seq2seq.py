@@ -54,11 +54,11 @@ class ZoneoutWrapper(tf.nn.rnn_cell.RNNCell):
     if not isinstance(cell, tf.nn.rnn_cell.RNNCell):
       raise TypeError("The parameter cell is not an RNNCell.")
     if (isinstance(zoneout_prob, float) and
-        not (zoneout_prob >= 0.0 and zoneout_prob <= 1.0)):
+        not (state_zoneout_prob >= 0.0 and state_zoneout_prob <= 1.0)):
       raise ValueError("Parameter zoneout_prob must be between 0 and 1: %d"
                        % zoneout_prob)
     self._cell = cell
-    self._zoneout_prob = zoneout_prob
+    self._zoneout_prob = state_zoneout_prob
     self._seed = seed
     self.is_training = is_training
   
