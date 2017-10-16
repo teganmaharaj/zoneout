@@ -86,10 +86,10 @@ class ZoneoutWrapper(tf.nn.rnn_cell.RNNCell):
                             for new_state_part, state_part, state_part_zoneout_prob in zip(new_state, state, self._zoneout_prob))
     else:
       if self.is_training:
-          new_state = (1 - state_part_zoneout_prob) * tf.python.nn_ops.dropout(
-                        new_state_part - state_part, (1 - state_part_zoneout_prob), seed=self._seed) + state_part
+          new_state = (1 - self._zoneout_prob) * tf.python.nn_ops.dropout(
+                        new_state_part - state_part, (1 - self._zoneout_prob), seed=self._seed) + state_part
       else:
-          new_state = state_part_zoneout_prob * state_part + (1 - state_part_zoneout_prob) * new_state_part
+          new_state = self._zoneout_prob * state_part + (1 - self._zoneout_prob) * new_state_part
     return output, new_state
 
 
