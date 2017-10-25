@@ -143,16 +143,16 @@ class ZoneoutLSTM(BaseRecurrent, Initializable):
                                           name='W_state')
         # The underscore is required to prevent collision with
         # the `initial_state` application method
-        # self.initial_state_ = shared_floatx_zeros((self.dim,),
-        #                                          name="initial_state")
-        # self.initial_cells = shared_floatx_zeros((self.dim,),
-        #                                         name="initial_cells")
+        self.initial_state_ = shared_floatx_zeros((self.dim,),
+                                                  name="initial_state")
+        self.initial_cells = shared_floatx_zeros((self.dim,),
+                                                 name="initial_cells")
         add_role(self.W_state, WEIGHT)
-        # add_role(self.initial_state_, INITIAL_STATE)
-        # add_role(self.initial_cells, INITIAL_STATE)
+        add_role(self.initial_state_, INITIAL_STATE)
+        add_role(self.initial_cells, INITIAL_STATE)
 
         self.parameters = [
-            self.W_state]  # , self.initial_state_, self.initial_cells]
+            self.W_state , self.initial_state_, self.initial_cells]
 
     def _initialize(self):
         for weights in self.parameters[:1]:
@@ -204,13 +204,10 @@ class ZoneoutLSTM(BaseRecurrent, Initializable):
 
         return next_states, next_cells
 
-#    @application(outputs=apply.states)
-#    def initial_states(self, batch_size, *args, **kwargs):
-#        import ipdb
-#        ipdb.set_trace()
-#        return [tensor.repeat(self.initial_state_[None, :], batch_size, 0),
-#                tensor.repeat(self.initial_cells[None, :], batch_size, 0)]
-    
+    @application(outputs=apply.states)
+    def initial_states(self, batch_size, *args, **kwargs):
+        return [tensor.repeat(self.initial_state_[None, :], batch_size, 0),
+                tensor.repeat(self.initial_cells[None, :], batch_size, 0)]
 #END LSTM#####################################################
 
 

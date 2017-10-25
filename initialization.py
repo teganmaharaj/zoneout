@@ -43,12 +43,11 @@ class OrthogonalInitialization(NdarrayInitialization):
     # Janos Kramar
     def generate(self, rng, shape):
         W = rng.normal(0.0, 1.0, shape)
-        #factor = gcd(*W.shape)
-        #assert factor in W.shape
-        #for i in range(W.shape[0]/factor):
-            #for j in range(W.shape[1]/factor):
-                #W[factor*i:factor*(i+1),factor*j:factor*(j+1)], _, _ = numpy.linalg.svd(W[factor*i:factor*(i+1),factor*j:factor*(j+1)])
-        #return W.astype(theano.config.floatX)
-        u,s,v = numpy.linalg.svd(W,False)
-        return u.astype(theano.config.floatX) if u.shape == W.shape else v.astype(theano.config.floatX)
+        factor = gcd(*W.shape)
+        assert factor in W.shape
+        for i in range(W.shape[0]/factor):
+            for j in range(W.shape[1]/factor):
+                W[factor*i:factor*(i+1),factor*j:factor*(j+1)], _, _ = numpy.linalg.svd(W[factor*i:factor*(i+1),factor*j:factor*(j+1)])
+        return W.astype(theano.config.floatX)
+
     
